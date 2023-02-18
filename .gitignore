@@ -1,0 +1,5 @@
+.vs/
+db/hackathon-full.db
+kafka-reader-console/bin/
+kafka-reader-console/obj/
+packages/
