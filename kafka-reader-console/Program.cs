@@ -10,6 +10,7 @@ using System.Data.SQLite;
 using Newtonsoft.Json;
 
 using Confluent.Kafka;
+using static System.Net.WebRequestMethods;
 
 // https://cloud.yandex.ru/docs/managed-kafka/operations/connect
 // https://kafka.apache.org/documentation/#consumerconfigs
@@ -20,7 +21,8 @@ namespace kafka_reader_console
     {
         static void Main(string[] args)
         {
-            string HOST = "rc1a-b5e65f36lm3an1d5.mdb.yandexcloud.net:9091";
+            // string HOST = "rc1a-b5e65f36lm3an1d5.mdb.yandexcloud.net:9091";
+            string HOST = "rc1a-2ar1hqnl386tvq7k.mdb.yandexcloud.net:9091";
             string TOPIC = "zsmk-9433-dev-01";
             string USER = "9433_reader";
             string PASS = "eUIpgWu0PWTJaTrjhjQD3.hoyhntiK";
@@ -28,7 +30,8 @@ namespace kafka_reader_console
             string KEY;
             string VALUE;
 
-            string dbName = "C:\\SourceCode\\kafka-hackathon\\hackathon.db";
+            // string dbName = "D:\\SourceCode\\evraz-hackathon\\hackathon.db";
+            string dbName = "hackathon.db";
 
             var consumerConfig = new ConsumerConfig(
                 new Dictionary<string, string>{
@@ -40,7 +43,7 @@ namespace kafka_reader_console
                     {"ssl.ca.location", "certificate.pem"},
                     {"auto.offset.reset", "earliest"},
                     //{"enable.auto.commit", "false"},
-                    {"group.id", "sevsu-ru"}
+                    {"group.id", "vasoftlab"}
                 }
             );
 
@@ -63,8 +66,8 @@ namespace kafka_reader_console
                     else
                         VALUE = String.Empty;
 
-                    dynamic obj = JsonConvert.DeserializeObject(VALUE);
-                    var moment = obj["SM_Exgauster\\[0:0]"];
+                    //dynamic obj = JsonConvert.DeserializeObject(VALUE);
+                    //var moment = obj["SM_Exgauster\\[0:0]"];
 
                     using (var conn = new SQLiteConnection($"Data Source = '{dbName}';Version=3;"))
                     {

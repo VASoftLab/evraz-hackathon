@@ -3,3 +3,6 @@ db/hackathon-full.db
 kafka-reader-console/bin/
 kafka-reader-console/obj/
 packages/
+db/hackathon--full-feb-18.db
+db/hackathon--full-feb-19-server-I.db
+db/hackathon--full-feb-19-server-II.db
